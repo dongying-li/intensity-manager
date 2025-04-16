@@ -55,7 +55,7 @@ func TestIntensityManager(t *testing.T) {
 		},
 		{
 			name: "Add Empty",
-			inputs: []input {
+			inputs: []input{
 				{add, 0, 1, 0},
 			},
 			expected: [][]Segment{
@@ -65,7 +65,7 @@ func TestIntensityManager(t *testing.T) {
 		{
 			name: "Set Empty",
 			inputs: []input{
-				{set, 0, 1 ,0},
+				{set, 0, 1, 0},
 			},
 			expected: [][]Segment{
 				{},
@@ -115,7 +115,7 @@ func TestIntensityManager(t *testing.T) {
 		},
 		{
 			name: "Mixed 2",
-			inputs: []input {
+			inputs: []input{
 				{add, 10, 20, 1},
 				{set, 15, 17, 2},
 			},

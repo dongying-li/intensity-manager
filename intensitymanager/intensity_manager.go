@@ -35,12 +35,10 @@ func (pi *IntensityManager) Add(from, to, amount int) error {
 	if i < len(pi.Segments) && pi.Segments[i].point == from {
 		updatedSegments = append(updatedSegments, Segment{from, pi.Segments[i].intensity + amount})
 		i++
+	} else if len(updatedSegments) > 0 {
+		updatedSegments = append(updatedSegments, Segment{from, updatedSegments[len(updatedSegments)-1].intensity + amount})
 	} else {
-		if len(updatedSegments) > 0 {
-			updatedSegments = append(updatedSegments, Segment{from, updatedSegments[len(updatedSegments)-1].intensity + amount})
-		} else {
-			updatedSegments = append(updatedSegments, Segment{from, amount})
-		}
+		updatedSegments = append(updatedSegments, Segment{from, amount})
 	}
 
 	for i < len(pi.Segments) && pi.Segments[i].point < to {
@@ -69,7 +67,7 @@ func (pi *IntensityManager) Set(from, to, amount int) error {
 	}
 
 	updatedSegments := []Segment{}
-	
+
 	toIntensity := 0
 	i := 0
 	for i < len(pi.Segments) && pi.Segments[i].point < from {
