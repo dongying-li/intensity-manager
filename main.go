@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	im "github.com/dongying-li/jerry-take-home/intensitymanager"
+	im "github.com/dongying-li/intensity-manager/intensitymanager"
 )
 func main() {
 	// Example Usage
